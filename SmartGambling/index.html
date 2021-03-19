@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Smart Gambling</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  </head>
+
+  <body class="grey">
+    <div class="container white">
+        <div class="card-panel black center-align" style=" padding: 1px;">
+          <img  src="images/LogoTrimmed.png" alt="Logo" >
+          <img  src="images/dices/dices.png" alt="Logo" >
+        </div>
+
+        <div class="row">
+            <div class="col s8 offset-s2">
+              <div class="card-panel grey lighten-3 center-align hoverable">
+                <span id="Messages" style="color: red;">Win some ETH!<br/>Roll the dice and get the chance to win 5x your bet.</span>
+            </div>
+          </div>
+
+
+        <div class="col s10 offset-s1 center-align">
+          <div style="text-align: center; display: inline-block; margin: 10px;"> 
+              <p id="PredictionDiceText">Prediction</p> 
+              <img id="PredictionDice" src="images/dices/dice6.png" alt="Prediction Dice"> 
+          </div> 
+    
+          <div style="text-align: center; display: inline-block; margin: 10px;"> 
+              <p id="ResultDiceText">Result</p> 
+              <img id="ResultDice" src="images/dices/dice0.png" alt="Result Dice"> 
+          </div> 
+      </div>
+
+
+        <div class="row">
+          <form class="col s6 offset-s3">
+              <form >
+                <h6>Make your prediction</h6>
+                <p class="center">
+                  <label>
+                    <input class="with-gap" name="prediction" type="radio" value="1" 
+                      onclick="document.getElementById('PredictionDice').src = 'images/dices/dice1.png'" />
+                    <span>1</span>
+                  </label>
+                  <label>
+                    <input class="with-gap" name="prediction" type="radio" value="2" 
+                    onclick="document.getElementById('PredictionDice').src = 'images/dices/dice2.png'"/>
+                    <span>2</span>
+                  </label>
+                  <label>
+                    <input class="with-gap" name="prediction" type="radio" value="3" 
+                    onclick="document.getElementById('PredictionDice').src = 'images/dices/dice3.png'"/>
+                    <span>3</span>
+                  </label>
+                  <label>
+                    <input class="with-gap" name="prediction" type="radio" value="4" 
+                    onclick="document.getElementById('PredictionDice').src = 'images/dices/dice4.png'"/>
+                    <span>4</span>
+                  </label>
+                  <label>
+                    <input class="with-gap" name="prediction" type="radio" value="5" 
+                    onclick="document.getElementById('PredictionDice').src = 'images/dices/dice5.png'"/>
+                    <span>5</span>
+                  </label>
+                  <label>
+                    <input class="with-gap" name="prediction" type="radio" value="6" checked
+                    onclick="document.getElementById('PredictionDice').src = 'images/dices/dice6.png'"/>
+                    <span>6</span>
+                  </label>
+                  <div class="input-field">
+                    <input placeholder="Bet Amount in Wei" id="bet_amount_input" type="number" class="validate">
+                    <label for="bet_amount_label">amount</label>
+                  </div>
+                  <button type="button" id="bet_button" class="waves-effect waves-light blue btn">Roll Dice & Place Bet</button>
+                  <br/><br/>
+                  <div class="input-field">
+                    <input type="number"  id="withdraw_amount_input" placeholder="0" readonly>
+                    <label for="withdraw_label">initial bet + unclaimed wins</label>
+                  </div>
+                  <button type="button" id="withdraw_button" class="waves-effect waves-light blue btn">Withdraw Wins</button>
+                  <br/><br/>
+                  <div id="AccountBalanceText">Account Balance: 0 ETH</div>
+                  <div id="UnclaimedWinsText">Unclaimed Wins: 0 ETH</div>
+                  
+                  <br/>
+                </p>
+              </form>
+          </form>
+        </div>
+
+          <footer class="page-footer black lighten-2">
+            <div class="footer-copyright">
+              <div class="container">
+                <label id="ContractBalanceText" class="grey-text text-lighten-4 left">Contract ETH Balance: 0 ETH</label>
+                <label id="ContractLinkBalanceText" class="grey-text text-lighten-4 right">ChainLink Balance: 0 LINK</label>
+                <br/>
+                <label style="color:white; font-size: 13px;">Rinkeby Testnet ETH Faucet: </label>
+                <a style="font-size: 13px;" href="https://faucet.rinkeby.io/">faucet.rinkeby.io</a><br/>
+                <label style="color:white; font-size: 13px;">Contract on Blockchain Explorer: </label>
+                <a id="contract_link" style="font-size: 13px;" href="https://rinkeby.etherscan.io/">https://rinkeby.etherscan.io/</a>
+              </div>
+            </div>
+          </footer>
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/web3.min.js"></script>
+    <script type="text/javascript" src="./js/abi.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+  </body>
+</html>
